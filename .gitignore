@@ -1,0 +1,18 @@
+.DS_Store
+Thumbs.db
+
+# Local env
+.env
+*.local
+
+# Flutter
+crm_mobile/.dart_tool/
+crm_mobile/.flutter-plugins
+crm_mobile/.flutter-plugins-dependencies
+crm_mobile/build/
+
+# Laravel
+backend/vendor/
+backend/node_modules/
+backend/.env
+backend/storage/*.key
