@@ -27,7 +27,7 @@ class DashboardController extends Controller
                     'total_customers' => Customer::count(),
                     'open_leads' => Lead::whereNotIn('status', ['Won', 'Lost'])->count(),
                     'active_deals' => Deal::whereNotIn('stage', ['Won', 'Lost'])->count(),
-                    'monthly_revenue' => Deal::where('stage', 'Won')->sum('amount'),
+                    'monthly_revenue' => (int) Deal::where('stage', 'Won')->sum('amount'),
                     'conversion_rate' => $this->conversionRate(),
                 ],
                 'customers' => $customers,
