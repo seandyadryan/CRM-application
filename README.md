@@ -36,6 +36,60 @@ php artisan migrate --seed
 php artisan serve
 ```
 
+## Menjalankan Backend dengan Docker
+
+Pastikan Docker dan Docker Compose sudah terinstall.
+
+```bash
+cd CRM-application
+docker compose up -d --build
+```
+
+Container yang berjalan:
+
+- `crm_nginx` - Nginx, akses API di port `8080`.
+- `crm_app` - Laravel PHP-FPM.
+- `crm_postgres` - PostgreSQL, port host `5433`.
+
+Tes di Postman:
+
+```text
+GET http://localhost:8080/api/workspace
+```
+
+Kalau menjalankan dari server, ganti `localhost` dengan IP server:
+
+```text
+GET http://SERVER_IP:8080/api/workspace
+```
+
+Melihat log:
+
+```bash
+docker compose logs -f app
+docker compose logs -f nginx
+```
+
+Stop container:
+
+```bash
+docker compose down
+```
+
+Reset database Docker:
+
+```bash
+docker compose down -v
+docker compose up -d --build
+```
+
+Menjalankan Flutter ke backend Docker lokal:
+
+```powershell
+cd D:\GITHUB\CRM-application\crm_mobile
+C:\Users\seandy.nugraha\fvm\versions\3.41.2\bin\flutter.bat run --dart-define=API_BASE_URL=http://localhost:8080/api
+```
+
 Endpoint utama:
 
 ```text

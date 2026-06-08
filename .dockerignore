@@ -1,0 +1,8 @@
+.git
+.github
+crm_mobile/.dart_tool
+crm_mobile/build
+backend/vendor
+backend/node_modules
+backend/.env
+backend/storage/logs/*.log
